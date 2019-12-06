@@ -3,14 +3,14 @@ var fs = require('fs');
 
 faker.locale = "pt_BR";
 
-const pessoas = [];
+const clientes = [];
 const produtos = [];
 
 /*Altere o for para quantidade desejada!*/
 for (let i = 0; i < 20; i++) {
 
     
-    var pessoa = {
+    var cliente = {
         Nome: faker.name.firstName() + ' ' + faker.name.lastName(),
         Endereço: {
             id_cliente: i,
@@ -21,7 +21,7 @@ for (let i = 0; i < 20; i++) {
             CEP: faker.address.zipCode()
         }
     }
-    pessoas.push(pessoa)
+    clientes.push(cliente)
 
     var produto = {
         id_produto: i,
@@ -32,18 +32,12 @@ for (let i = 0; i < 20; i++) {
 }
 
 /*=============Pessoas============== */
-fs.writeFile("./pessoas.json", JSON.stringify(pessoas), function(err) {
-
-    if(err) {
-        return console.log(err);
-    }
-    console.log("Salvo! (pessoas)");
+fs.writeFile("./clientes.json", JSON.stringify(clientes), function(err) {
+    if(err) throw err;
+    console.log("Salvo! (Clientes)");
 }); 
 /*=============Produto============== */
 fs.writeFile("./produtos.json", JSON.stringify(produtos), function(err) {
-
-    if(err) {
-        return console.log(err);
-    }
+    if(err) throw err;
     console.log("Salvo! (Produtos)");
 }); 
