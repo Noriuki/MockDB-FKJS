@@ -40,15 +40,11 @@ for (let j = 1; j <= 50; j++ )
 
 /* Pedidos */
 fs.writeFile("./pedidos.json" , JSON.stringify(pedidos), e => {
-    if(e)
-        throw e
-    else
-        console.log('Salvo!(Pedidos)')
+    if(err) throw err;
+    console.log("Salvo! (pedidos)");
 })
 /* Itens Pedido */
 fs.writeFile("./itens_pedido.json" , JSON.stringify(itens_pedido), e => {
-    if(e)
-        throw e
-    else
-        console.log('Salvo!(itens_pedido)')
+    if(e) throw err;
+    console.log("Salvo! (itens_pedido)");
 })
